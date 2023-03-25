@@ -1,5 +1,7 @@
-CC = gcc -c
-LD = gcc
+FLAGS = -Os -s -fno-unwind-tables -fno-asynchronous-unwind-tables -fno-stack-protector -fomit-frame-pointer -ffunction-sections -fdata-sections -Wl,--gc-sections -fno-math-errno -fno-unroll-loops -fmerge-all-constants -ffast-math -fno-ident
+
+CC = gcc -c -I ./include $(FLAGS)
+LD = gcc $(FLAGS)
 
 
 SOURCES = $(wildcard *.c)
